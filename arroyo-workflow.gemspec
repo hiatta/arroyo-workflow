@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.add_dependency('ruote')
   s.add_dependency('threadz')
   s.add_dependency('uuidtools')
-  s.add_dependency('active_support')
+  s.add_dependency('activesupport')
 end
