@@ -90,7 +90,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_support
+  activesupport
   arroyo-workflow!
   i18n
   rake
