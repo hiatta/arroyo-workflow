@@ -11,7 +11,10 @@ Gem::Specification.new do |s|
   s.description = "Client gem for defining workflows that can be executed as Arroyo ESB jobs"
 #  s.rubyforge_project = "arroyo"  
   s.files = Dir['Gemfile', 'arroyo-workflow.gemspec', 'lib/**/*.rb']
-  
+
+  s.add_dependency('i18n')  
   s.add_dependency('ruote')
   s.add_dependency('threadz')
+  s.add_dependency('uuidtools')
+  s.add_dependency('active_support')
 end

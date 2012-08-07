@@ -1,3 +1,5 @@
+require 'i18n'
+require 'active_support/core_ext/hash'
 require 'ruote'
 require 'ruote/svc/dispatch_pool'
 require File.expand_path('workflow/workflow_job', File.dirname(__FILE__))

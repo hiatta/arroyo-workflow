@@ -1,4 +1,4 @@
-describe WorkflowEngine do  
+describe Arroyo::Workflow::WorkflowEngine do  
   describe 'respond_to?' do
     it 'checks to see if either WorkflowEngine or the Ruote Engine respond to a function' do
       we=Arroyo::Workflow::WorkflowEngine.instance

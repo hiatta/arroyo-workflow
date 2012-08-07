@@ -18,7 +18,8 @@ module Arroyo
         def participant(*args, &block)
           raise StandardError,"Participant must have a label and class as arguments" unless args and args.size>=2
 
-          pool_opts=args[2].select { |k,v| ParticipantThreadPoolManager::VALID_OPTS.include?(k) }
+          pool_opts=args[2] || {}
+          pool_opts=pool_opts.select { |k,v| ParticipantThreadPoolManager::VALID_OPTS.include?(k) } 
           pool_key=ParticipantThreadPoolManager.instance.create_pool(pool_opts)
           
           if args.size >= 3
@@ -38,7 +39,7 @@ module Arroyo
           
           # get workflow
           pdef=send(JOB_WORKFLOW_METHOD_NAME,job_parameters)        
-          raise StandardError, "Programmer Error: the workflow function must return a valid workflow" unless pdef and pdef.size > 2
+          raise StandardError, "Programmer Error: the workflow function must return a valid workflow" unless pdef and pdef.is_a?(Array) and pdef.size > 2
           
           # run actual job and then block for it to complete
           jp=job_parameters ? job_parameters.clone : {}

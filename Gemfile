@@ -5,6 +5,7 @@ gem 'i18n'
 gem 'ruote', :git => 'git@github.com:GoodGuide/ruote'
 gem "threadz"
 gem 'uuidtools'
+gem 'active_support'
 
 group :test, :development do
   gem 'rspec', '~> 2.6'
