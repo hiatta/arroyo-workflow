@@ -48,9 +48,8 @@ module Arroyo
           result=engine.process(wfid)
           
           if result and result.errors
-            puts "FOOOOO #{result.errors.first.methods}"
             raise_ex=StandardError.new("Workflow created an error [#{result.errors.first.message}]" )
-            raise_ex.set_backtrace(result.errors.first.backtrace)
+            raise_ex.set_backtrace(result.errors.first.trace)
             raise raise_ex
           end
         end
