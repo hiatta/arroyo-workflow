@@ -47,7 +47,7 @@ module Arroyo
           engine.wait_for(wfid)
           result=engine.process(wfid)
           
-          raise StandardError, "Workflow created an error [#{result.errors.first.message}]" if result and result.errors
+          raise StandardError, "Workflow created an error [#{result.errors.first.message}] with trace: \n#{result.errors.first.trace}\n\n\n" if result and result.errors
         end
       end
     end
