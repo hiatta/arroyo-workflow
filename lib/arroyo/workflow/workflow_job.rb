@@ -47,11 +47,7 @@ module Arroyo
           engine.wait_for(wfid)
           result=engine.process(wfid)
           
-          if result and result.errors
-            raise_ex=StandardError.new("Workflow created an error [#{result.errors.first.message}]" )
-            raise_ex.set_backtrace(result.errors.first.trace)
-            raise raise_ex
-          end
+          raise StandardError, "Workflow created an error [#{result.errors.first.message}]" if result and result.errors
         end
       end
     end
