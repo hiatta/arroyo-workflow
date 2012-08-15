@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version     = Arroyo::Workflow.version
   s.authors     = ["Adam Hiatt"]
   s.email       = ["adam@goodguide.com"]
-  s.homepage    = "https://github.com/GoodGuide/arroyo"
+  s.homepage    = "https://github.com/GoodGuide/arroyo-workflow"
   s.summary     = "Arroyo ESB workflow gem"
   s.description = "Client gem for defining workflows that can be executed as Arroyo ESB jobs"
 #  s.rubyforge_project = "arroyo"  

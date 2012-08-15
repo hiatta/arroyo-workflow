@@ -46,7 +46,12 @@ module Arroyo
           wfid = engine.launch(pdef, jp.with_indifferent_access)
           engine.wait_for(wfid)
           result=engine.process(wfid)
-          raise StandardError,"Workflow created an error [#{result.errors.first.message}]" if result and result.errors
+          
+          if result and result.errors
+            raise_ex=StandardError.new("Workflow created an error [#{result.errors.first.message}]" )
+            raise_ex.set_backtrace(result.errors.first.backtrace)
+            raise raise_ex
+          end
         end
       end
     end
