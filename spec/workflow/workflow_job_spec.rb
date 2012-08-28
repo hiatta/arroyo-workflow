@@ -15,7 +15,7 @@ describe Arroyo::Workflow::WorkflowJob do
   class TestJobOne < BaseTestJob
     def self.workflow(job_parameters)
       participant "five", TestParticipantOne, { test_string: "test1", max_threads: 1 }
-      define {sequence { one } }
+      define {sequence { five } }
     end
   end
 

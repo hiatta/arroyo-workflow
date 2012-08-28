@@ -1,10 +1,7 @@
-require 'singleton'
-
 # This class encapsulates all storage and engine/dashboard concepts from Ruote
 module Arroyo
   module Workflow
     class WorkflowEngine
-      include Singleton
 
       # The storage mechanism used by the engine
       attr_reader :storage
