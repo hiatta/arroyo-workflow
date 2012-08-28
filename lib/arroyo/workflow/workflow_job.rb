@@ -12,7 +12,7 @@ module Arroyo
 
       module ClassMethods
         def engine
-          WorkflowEngine.instance.engine
+          @engine ||= WorkflowEngine.instance.engine
         end
 
         def participant(*args, &block)
