@@ -26,7 +26,8 @@ module Arroyo
             args[2][:pool_key]=pool_key
           else
             args << { pool_key: pool_key }
-          end  
+          end
+          args[2]=args[2].with_indifferent_access
           engine.register_participant(*args, &block)
         end
       
