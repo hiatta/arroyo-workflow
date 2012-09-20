@@ -37,14 +37,15 @@ module Arroyo
             
         def perform(job_parameters, job_message)
           raise StandardError, "Programmer Error: the workflow function must be implemented in the child class" unless self.respond_to?(JOB_WORKFLOW_METHOD_NAME)
+
+          jp=job_parameters ? job_parameters.clone : {}
+          jp[:_job_message]=job_message.clone
           
           # get workflow
-          pdef=send(JOB_WORKFLOW_METHOD_NAME,job_parameters)
+          pdef=send(JOB_WORKFLOW_METHOD_NAME,jp)
           raise StandardError, "Programmer Error: the workflow function must return a valid workflow" unless pdef and pdef.is_a?(Array) and pdef.size > 2
           
           # run actual job and then block for it to complete
-          jp=job_parameters ? job_parameters.clone : {}
-          jp[:_job_message]=job_message.clone
           wfid = engine.launch(pdef, jp.with_indifferent_access)
           engine.wait_for(wfid)
           result=engine.process(wfid)
